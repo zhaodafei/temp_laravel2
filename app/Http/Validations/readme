@@ -1,0 +1,4 @@
+可以在这里做数据校验
+$validatedData = Validator::make()
+$validatedData->fails()
+throw new ApiExceptions($msgStr);
