@@ -5,17 +5,64 @@
  Source Server Type    : MySQL
  Source Server Version : 50717
  Source Host           : localhost:3306
- Source Schema         : yi_zheng
+ Source Schema         : temp_demo
 
  Target Server Type    : MySQL
  Target Server Version : 50717
  File Encoding         : 65001
 
- Date: 18/06/2020 00:57:28
+ Date: 29/10/2020 15:43:18
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for goods
+-- ----------------------------
+DROP TABLE IF EXISTS `goods`;
+CREATE TABLE `goods`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `goodsName` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '商品名称',
+  `unitPrice` decimal(10, 2) NULL DEFAULT NULL COMMENT '单价',
+  `goodsNumber` int(10) NULL DEFAULT NULL COMMENT '数量',
+  `countPrice` decimal(10, 2) NULL DEFAULT NULL COMMENT '总价格',
+  `consumeWay` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '消费途径[线下;线上]',
+  `goodsComment` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '备注',
+  `consumeTime` datetime(0) NULL DEFAULT NULL COMMENT '购买时间',
+  `createdTime` datetime(0) NULL DEFAULT NULL COMMENT '入库时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of goods
+-- ----------------------------
+INSERT INTO `goods` VALUES (3, '荷兰豆', 2.00, 3, 6.00, '线下', '无', '2020-08-01 09:00:00', '2020-10-22 10:52:22');
+INSERT INTO `goods` VALUES (4, '伊丽莎白', 4.00, 6, 24.00, '线下', '无', '2020-08-01 09:00:00', '2020-10-22 10:52:57');
+INSERT INTO `goods` VALUES (5, '火龙果', 8.00, 12, 96.00, '线下', '无', '2020-08-01 09:00:00', '2020-10-22 10:54:14');
+INSERT INTO `goods` VALUES (6, '西瓜', 2.00, 20, 40.00, '线下', '无', '2020-08-01 09:36:13', '2020-10-25 16:25:55');
+INSERT INTO `goods` VALUES (7, '西瓜', 2.00, 20, 40.00, '线下', '无', '2020-08-01 09:36:13', '2020-10-25 16:28:48');
+
+-- ----------------------------
+-- Table structure for user
+-- ----------------------------
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE `user`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户名',
+  `password` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '密码',
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '邮箱',
+  `mobile` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '手机号',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci COMMENT = '用户表' ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user
+-- ----------------------------
+INSERT INTO `user` VALUES (1, 'dafei', '123456', 'dafei@qq.com', '11111&nbsp;111');
+INSERT INTO `user` VALUES (2, 'dafei_02', '123456', 'dafei_02@qq.com', '1111111122');
+INSERT INTO `user` VALUES (3, 'dafei_03', '123456', 'dafei_03@qq.com', '1111111133');
+INSERT INTO `user` VALUES (5, 'fei', '123456', '123456@qq.com', '111111111111');
 
 -- ----------------------------
 -- Table structure for yz_book
@@ -37,7 +84,7 @@ CREATE TABLE `yz_book`  (
 -- ----------------------------
 INSERT INTO `yz_book` VALUES (1, '我是admin，现在create book，图书编号001', 1.00, 'admin', 6, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
 INSERT INTO `yz_book` VALUES (2, '我是admin，现在create book，图书编号002', 2.00, 'admin', 1, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
-INSERT INTO `yz_book` VALUES (3, '我是admin，现在create book，图书编号003', 3.00, 'admin', 2, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
+INSERT INTO `yz_book` VALUES (3, 'temp_demo我是admin，现在create book，图书编号003', 3.00, 'admin', 2, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
 INSERT INTO `yz_book` VALUES (4, '我是test，现在create book，图书编号test-001', 1.00, 'test', 1, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
 INSERT INTO `yz_book` VALUES (8, '我是随机admin3fbc', 111.00, 'admin_test', 1, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
 INSERT INTO `yz_book` VALUES (9, '我是随机 admin_cc8b', 111.00, 'admin_test', 1, '2020-02-06 08:45:15', '2020-02-06 08:45:15');
