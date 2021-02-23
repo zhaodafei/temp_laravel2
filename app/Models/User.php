@@ -24,7 +24,7 @@ class User  extends Authenticatable implements JWTSubject
 
     use Notifiable;
 
-    public $table = 'user';
+    public $table = 'yz_user';
 
     public $fillable = [
         'account_name',
@@ -51,7 +51,7 @@ class User  extends Authenticatable implements JWTSubject
      * @var array
      */
     public static $rules = [
-        
+
     ];
 
     /**

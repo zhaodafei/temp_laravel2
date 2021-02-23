@@ -45,11 +45,11 @@ class BookController extends Controller
 
     }
 
-    // 访问地址 http://demo.yizheng_fei.com/api/book/detail?id=3
+    // 访问地址 http://demo.yizheng_fei.com/api/book/detail?bookId=3
     public function bookDetail(Request $request)
     {
-        // $id = $request->get('bookId',1);
-        $id = $request->get('bookId');
+        // exit("请求成功");
+        $id = $request->get('bookId',3);
         if (!$id) { // 没有参数,直接交给基类处理
             throw new ApiExceptions("请输入参数");
         }
@@ -60,7 +60,6 @@ class BookController extends Controller
     // 访问地址 http://demo.yizheng_fei.com/api/book/del?id=3
     public function bookDel(Request $request)
     {
-
         $ids = $request->post('book_ids');
         if (!$ids) {
             return showMsg(10000, '参数错误');

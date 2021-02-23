@@ -11,15 +11,16 @@ use Eloquent as Model;
  * @property string $price
  * @property string $author
  * @property integer $num_add
- * @property integer $create_time
+ * @property string $create_time
+ * @property string $update_time
  *
  * @method  static \Illuminate\Database\Eloquent\Builder | \App\Models\Book query()
  */
 class Book extends Model
 {
 
-    public $table = 'book';
-    
+    public $table = 'yz_book';
+
     const CREATED_AT = 'create_time';
     const UPDATED_AT = 'update_time';
     // public $timestamps = false;
@@ -60,5 +61,5 @@ class Book extends Model
     public static $rules = [
 
     ];
-    
+
 }

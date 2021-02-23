@@ -10,8 +10,7 @@ Route::group(['prefix' => 'user'],function (){
     // 登录 demo.yizheng_fei.com/api/user/login
     Route::post('login', 'UserController@login');
 
-    // 访问地址 http://demo.yizheng_fei.com/api/user/detail?id=3
-    // 免登录测试地址
+    // 免登录测试地址 http://demo.yizheng_fei.com/api/user/detail?bookId=3
     Route::get('detail', 'BookController@bookDetail');
 });
 // 必须登录才可以访问
@@ -30,4 +29,11 @@ Route::middleware('jwt')->group(function () {
         Route::post('del', 'BookController@bookdel');
     });
 
+    // 商品管理
+    Route::group(['prefix' => 'goods'], function () {
+        Route::get('list', 'GoodsController@goodsList');
+        Route::post('add', 'GoodsController@goodsAdd');
+        Route::get('detail', 'GoodsController@goodsDetail');
+        Route::post('del', 'GoodsController@goodsdel');
+    });
 });
