@@ -36,4 +36,12 @@ Route::middleware('jwt')->group(function () {
         Route::get('detail', 'GoodsController@goodsDetail');
         Route::post('del', 'GoodsController@goodsdel');
     });
+
+    // 价格统计
+    Route::group(['prefix' => 'billCount'], function () {
+        Route::get('list', 'BillCountController@billCountList');
+        Route::post('add', 'BillCountController@billCountAdd');
+        Route::post('budget', 'BillCountController@billCountBudget');
+        Route::post('del', 'BillCountController@billCountDel');
+    });
 });

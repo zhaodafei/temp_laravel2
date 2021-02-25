@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 
 class GoodsController extends Controller
 {
-    // 访问地址 http://demo.yizheng_fei.com/api/goods/list?per_page=6
     /**
+     * 访问地址 domain + /api/goods/list?per_page=6
      *     page: 1,   [默认会有这个参数]
      *     per_page: 10
      * @param Request $request
@@ -47,7 +47,7 @@ class GoodsController extends Controller
         $model->goodsNumber = $goodsNumber;
         $model->countPrice = bcmul($goodsNumber,$unitPrice,2);
         $model->consumeWay = $consumeWay;
-        $model->goodsNumType = date("Y-m-d_") . substr(hash('sha512', time()), 0, 4);
+        $model->goodsNumType = date("Y-m-d",strtotime($consumeTime)) . substr(hash('sha512', time()), 0, 4);
         $model->goodsComment = $goodsComment;
         $model->consumeTime = $consumeTime;
         $model->createdTime = date("Y-m-d H:i:s");

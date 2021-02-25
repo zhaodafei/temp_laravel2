@@ -5,7 +5,7 @@ namespace App\Models;
 use Eloquent as Model;
 
 /**
- * Class Pre
+ * Class Goods
  * @property integer $id
  * @property string $goodsName  商品名称
  * @property string $unitPrice  单价
