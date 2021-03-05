@@ -42,6 +42,7 @@ class BillCountController extends Controller
             ->whereBetween('consumeTime', [$startTime . " 00:00:00", $endTime . " 11:59:59"])
             // ->where("consumeTime",'>=',$startTime)
             // ->where("consumeTime",'<=',$endTime)
+            ->where(['delNum' => 0])
             ->sum('countPrice');
 
         $model = new BillCount();
@@ -69,6 +70,7 @@ class BillCountController extends Controller
 
         $allCount = Goods::query()
             ->whereBetween('consumeTime', [$startTime . " 00:00:00", $endTime . " 11:59:59"])
+            ->where(['delNum' => 0])
             ->sum('countPrice');
 
         return showMsg(0, 'success', ['allCount' => $allCount]);
