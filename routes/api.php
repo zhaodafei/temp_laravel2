@@ -1,5 +1,15 @@
 <?php
 
+// 自行测试地址,不需要登录
+Route::group(['prefix' => 'foo'],function (){
+    // GET http://demo.yizheng_fei.com/api/foo/da
+    Route::get('da', 'FeiController@da');
+
+    // POST http://demo.yizheng_fei.com/api/foo/fei
+    Route::post('fei', 'FeiController@fei');
+
+});
+
 // 其他
 Route::group(['prefix' => 'prescription'],function (){
     Route::post('checkPre', 'prescriptionController@checkPre');
@@ -12,6 +22,7 @@ Route::group(['prefix' => 'user'],function (){
 
     // 免登录测试地址 http://demo.yizheng_fei.com/api/user/detail?bookId=3
     Route::get('detail', 'BookController@bookDetail');
+    Route::get('fei', 'BookController@fei');
 });
 // 必须登录才可以访问
 Route::middleware('jwt')->group(function () {
