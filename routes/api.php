@@ -24,6 +24,12 @@ Route::group(['prefix' => 'user'],function (){
     Route::get('detail', 'BookController@bookDetail');
     Route::get('fei', 'BookController@fei');
 });
+
+// 日历管理
+Route::group(['prefix' => 'calendar'],function (){
+    Route::get('list', 'CalendarController@calendarList');
+});
+
 // 必须登录才可以访问
 Route::middleware('jwt')->group(function () {
     // 退出登录 demo.yizheng_fei.com/api/user/login
