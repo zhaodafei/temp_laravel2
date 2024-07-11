@@ -12,7 +12,7 @@ composer install  #安装vendor依赖包
 
 ```
 #model层生成
-php artisan infyom:model 模型名称 --fromTabel --tableName=表名(需要表前缀)
+php artisan infyom:model 模型名称 --fromTable --tableName=表名(需要表前缀)
 php artisan infyom:model DicRegion --fromTable --tableName=jyt_dic_region
 ```
 
