@@ -5,20 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class FeiController extends Controller
+class PrintTempController extends Controller
 {
-    public function da()
-    {
-        return showMsg(10000, '1111111');
-    }
-
-    public function fei()
-    {
-        return showMsg(10000, '22222222');
-    }
-
-    // 测试有没有接受到参数
-    public function fei1(Request $request)
+    // 访问地址 http://demo.yizheng_fei.com/api/print/list
+    public function printList(Request $request)
     {
         $fei1 = $request->get('fei1');
         $fei2 = $request->get('fei2');

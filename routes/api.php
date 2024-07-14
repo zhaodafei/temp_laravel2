@@ -8,6 +8,9 @@ Route::group(['prefix' => 'foo'],function (){
     // POST http://demo.yizheng_fei.com/api/foo/fei
     Route::post('fei', 'FeiController@fei');
 
+    // GET http://demo.yizheng_fei.com/api/foo/fei1
+    Route::get('fei1', 'FeiController@fei1');
+
 });
 
 // 其他
@@ -28,6 +31,11 @@ Route::group(['prefix' => 'user'],function (){
 // 日历管理
 Route::group(['prefix' => 'calendar'],function (){
     Route::get('list', 'CalendarController@calendarList');
+});
+
+// 打印管理
+Route::group(['prefix' => 'print'],function (){
+    Route::get('list', 'PrintTempController@printList');
 });
 
 // 必须登录才可以访问
